@@ -14,15 +14,15 @@
 		141CDFDF1F4ADA3C00080F4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFDD1F4ADA3C00080F4E /* Main.storyboard */; };
 		141CDFE11F4ADA3D00080F4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFE01F4ADA3D00080F4E /* Assets.xcassets */; };
 		141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */; };
-		141CDFF31F4AEB1100080F4E /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFEB1F4AEB1100080F4E /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */; };
-		141CDFF41F4AEB1100080F4E /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFEC1F4AEB1100080F4E /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */; };
-		141CDFF51F4AEB1100080F4E /* soundName.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFED1F4AEB1100080F4E /* soundName.mp3 */; };
-		141CDFF61F4AEB1100080F4E /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFEE1F4AEB1100080F4E /* Goi-Mua-Trung-Quan-Idol.mp3 */; };
-		141CDFF71F4AEB1100080F4E /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFEF1F4AEB1100080F4E /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */; };
-		141CDFF81F4AEB1100080F4E /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFF01F4AEB1100080F4E /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */; };
-		141CDFF91F4AEB1100080F4E /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFF11F4AEB1100080F4E /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */; };
-		141CDFFA1F4AEB1100080F4E /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFF21F4AEB1100080F4E /* Trot-Yeu-Trung-Quan-Idol.mp3 */; };
 		141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */; };
+		1797588E1F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */; };
+		1797588F1F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */; };
+		179758901F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */; };
+		179758911F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */; };
+		179758921F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */; };
+		179758931F4C99B70035F59A /* soundName.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588B1F4C99B70035F59A /* soundName.mp3 */; };
+		179758941F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */; };
+		179758951F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */; };
 		3A57C7F658C7D5C3681E4FA9 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96311B84A947596C14878F2C /* Pods_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,15 +37,15 @@
 		141CDFE01F4ADA3D00080F4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141CDFE31F4ADA3D00080F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141CDFE51F4ADA3D00080F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		141CDFEB1F4AEB1100080F4E /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chua-Bao-Gio-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		141CDFEC1F4AEB1100080F4E /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Duoi-Nhung-Con-Mua-Mr-Siro.mp3"; sourceTree = "<group>"; };
-		141CDFED1F4AEB1100080F4E /* soundName.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundName.mp3; sourceTree = "<group>"; };
-		141CDFEE1F4AEB1100080F4E /* Goi-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Goi-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		141CDFEF1F4AEB1100080F4E /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mua-Yeu-Cu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		141CDFF01F4AEB1100080F4E /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3"; sourceTree = "<group>"; };
-		141CDFF11F4AEB1100080F4E /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tha-Vao-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		141CDFF21F4AEB1100080F4E /* Trot-Yeu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Trot-Yeu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
 		141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
+		179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chua-Bao-Gio-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
+		179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Duoi-Nhung-Con-Mua-Mr-Siro.mp3"; sourceTree = "<group>"; };
+		179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Goi-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
+		179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mua-Yeu-Cu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
+		1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3"; sourceTree = "<group>"; };
+		1797588B1F4C99B70035F59A /* soundName.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundName.mp3; sourceTree = "<group>"; };
+		1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tha-Vao-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
+		1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Trot-Yeu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
 		1AEC0B4BAEB5F5BA814E8A8E /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
 		96311B84A947596C14878F2C /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,24 +92,24 @@
 				141CDFE01F4ADA3D00080F4E /* Assets.xcassets */,
 				141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */,
 				141CDFE51F4ADA3D00080F4E /* Info.plist */,
-				141CDFFB1F4AEB2300080F4E /* Songs */,
+				179758961F4C99C00035F59A /* mp3 */,
 			);
 			path = "Music Player";
 			sourceTree = "<group>";
 		};
-		141CDFFB1F4AEB2300080F4E /* Songs */ = {
+		179758961F4C99C00035F59A /* mp3 */ = {
 			isa = PBXGroup;
 			children = (
-				141CDFEB1F4AEB1100080F4E /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */,
-				141CDFEC1F4AEB1100080F4E /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */,
-				141CDFED1F4AEB1100080F4E /* soundName.mp3 */,
-				141CDFEE1F4AEB1100080F4E /* Goi-Mua-Trung-Quan-Idol.mp3 */,
-				141CDFEF1F4AEB1100080F4E /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */,
-				141CDFF01F4AEB1100080F4E /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */,
-				141CDFF11F4AEB1100080F4E /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */,
-				141CDFF21F4AEB1100080F4E /* Trot-Yeu-Trung-Quan-Idol.mp3 */,
+				179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */,
+				179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */,
+				179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */,
+				179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */,
+				1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */,
+				1797588B1F4C99B70035F59A /* soundName.mp3 */,
+				1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */,
+				1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */,
 			);
-			name = Songs;
+			name = mp3;
 			sourceTree = "<group>";
 		};
 		71E4EAE1E739843228408CFD /* Pods */ = {
@@ -164,7 +164,7 @@
 				TargetAttributes = {
 					141CDFD31F4ADA3B00080F4E = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = PYAF73A2GE;
+						DevelopmentTeam = CDXLQEAZX5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -192,17 +192,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				141CDFF71F4AEB1100080F4E /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */,
-				141CDFF41F4AEB1100080F4E /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */,
-				141CDFF81F4AEB1100080F4E /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */,
-				141CDFF51F4AEB1100080F4E /* soundName.mp3 in Resources */,
-				141CDFF31F4AEB1100080F4E /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */,
+				1797588F1F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */,
+				1797588E1F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */,
+				179758921F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */,
+				179758901F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */,
+				179758931F4C99B70035F59A /* soundName.mp3 in Resources */,
 				141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */,
 				141CDFE11F4ADA3D00080F4E /* Assets.xcassets in Resources */,
+				179758911F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */,
 				141CDFDF1F4ADA3C00080F4E /* Main.storyboard in Resources */,
-				141CDFF61F4AEB1100080F4E /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */,
-				141CDFFA1F4AEB1100080F4E /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */,
-				141CDFF91F4AEB1100080F4E /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */,
+				179758951F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */,
+				179758941F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F34EB4EFB77F5CE3621AAE44 /* [CP] Embed Pods Frameworks */ = {
@@ -397,10 +397,11 @@
 			baseConfigurationReference = 1AEC0B4BAEB5F5BA814E8A8E /* Pods-Music Player.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PYAF73A2GE;
+				DEVELOPMENT_TEAM = CDXLQEAZX5;
 				INFOPLIST_FILE = "Music Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -411,10 +412,11 @@
 			baseConfigurationReference = 140958D087C6F20FF4DA90DB /* Pods-Music Player.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PYAF73A2GE;
+				DEVELOPMENT_TEAM = CDXLQEAZX5;
 				INFOPLIST_FILE = "Music Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
