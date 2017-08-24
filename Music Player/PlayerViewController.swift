@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 import CircularSlider
 
-class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
     @IBOutlet weak var circularSlider: CircularSlider!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lblTime: UILabel!
@@ -22,10 +22,11 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         registerForKeyboardNotifications()
         setupTapGesture()
         */
-        playMusic()
+//        playMusic()
         setupCircularSlider()
+        
     }
-
+    /*
     func playMusic() {
         do {
             let audioPath = UserDefaults.standard.object(forKey: "thisSong")
@@ -36,32 +37,34 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } catch {
             print ("ERROR")
         }
-
     }
-
+    */
+    
     //MARK: set up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songsDisplayName.count
+         return albums[section].songs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = songsDisplayName[indexPath.row]
+        cell.textLabel?.text = albums[indexPath.section].songs[indexPath.row].songTitle
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let audioPath = Bundle.main.path(forResource: songsRealName[indexPath.row], ofType: ".mp3")
         UserDefaults.standard.set(audioPath, forKey: "thisSong")
-        playMusic()
+//        playMusic()
     }
+    
+    
 
     // MARK: - methods
     fileprivate func setupCircularSlider() {
         circularSlider.delegate = self
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayerViewController.updateSliderProgress), userInfo: nil, repeats: true)
-
     }
+    
     /*
     fileprivate func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -98,6 +101,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let progress = audioPlayer.currentTime
         circularSlider.setValue(Float(progress), animated: true)
         lblTime.text = getHoursMinutesSecondsFrom(seconds: progress)
+
     }
     
     func getHoursMinutesSecondsFrom(seconds: Double) -> String {
@@ -138,7 +142,8 @@ func playDidPress() {
 }
 extension PlayerViewController: CircularSliderDelegate {
     func circularSlider(_ circularSlider: CircularSlider, valueForValue value: Float) -> Float {
-        let asset = AVURLAsset(url: URL(fileURLWithPath: UserDefaults.standard.object(forKey: "thisSong") as! String))
+
+        let asset = AVURLAsset(url: URL(fileURLWithPath: UserDefaults.standard.object(forKey: "url") as! String))
         circularSlider.minimumValue = 0
         circularSlider.maximumValue = Float(Double(CMTimeGetSeconds(asset.duration)))
 //        audioPlayer.currentTime = TimeInterval(circularSlider.value)
