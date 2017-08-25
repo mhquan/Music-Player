@@ -16,14 +16,10 @@
 		141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */; };
 		141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */; };
 		1451338B1F4EAB4A00A8AB58 /* SongQuerry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */; };
-		1797588E1F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */; };
-		1797588F1F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */; };
-		179758901F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */; };
-		179758911F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */; };
-		179758921F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */; };
-		179758931F4C99B70035F59A /* soundName.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588B1F4C99B70035F59A /* soundName.mp3 */; };
-		179758941F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */; };
-		179758951F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */; };
+		14790BE91F4FE4A1005CBD62 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14790BE81F4FE4A1005CBD62 /* PlayerView.xib */; };
+		14790BEB1F4FE4B6005CBD62 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */; };
+		14790BED1F500D5E005CBD62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */; };
+		14790BEF1F501E88005CBD62 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEE1F501E88005CBD62 /* Constant.swift */; };
 		3A57C7F658C7D5C3681E4FA9 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96311B84A947596C14878F2C /* Pods_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,14 +36,10 @@
 		141CDFE51F4ADA3D00080F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongQuerry.swift; sourceTree = "<group>"; };
-		179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chua-Bao-Gio-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Duoi-Nhung-Con-Mua-Mr-Siro.mp3"; sourceTree = "<group>"; };
-		179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Goi-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mua-Yeu-Cu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3"; sourceTree = "<group>"; };
-		1797588B1F4C99B70035F59A /* soundName.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundName.mp3; sourceTree = "<group>"; };
-		1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tha-Vao-Mua-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
-		1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Trot-Yeu-Trung-Quan-Idol.mp3"; sourceTree = "<group>"; };
+		14790BE81F4FE4A1005CBD62 /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		14790BEE1F501E88005CBD62 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1AEC0B4BAEB5F5BA814E8A8E /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
 		96311B84A947596C14878F2C /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,34 +77,38 @@
 		141CDFD61F4ADA3C00080F4E /* Music Player */ = {
 			isa = PBXGroup;
 			children = (
-				141CDFD71F4ADA3C00080F4E /* AppDelegate.swift */,
+				141CDFDD1F4ADA3C00080F4E /* Main.storyboard */,
+				14790BEE1F501E88005CBD62 /* Constant.swift */,
+				1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */,
 				141CDFD91F4ADA3C00080F4E /* SongsListViewController.swift */,
 				141B83991F4BD9F500725933 /* PlayerViewController.swift */,
-				1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */,
 				141CDFDB1F4ADA3C00080F4E /* AlbumsViewController.swift */,
 				141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */,
-				141CDFDD1F4ADA3C00080F4E /* Main.storyboard */,
-				141CDFE01F4ADA3D00080F4E /* Assets.xcassets */,
-				141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */,
-				141CDFE51F4ADA3D00080F4E /* Info.plist */,
-				179758961F4C99C00035F59A /* mp3 */,
+				14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */,
+				14790BF11F502CC2005CBD62 /* Customized cell */,
+				14790BF01F502CB1005CBD62 /* Supporting Files */,
 			);
 			path = "Music Player";
 			sourceTree = "<group>";
 		};
-		179758961F4C99C00035F59A /* mp3 */ = {
+		14790BF01F502CB1005CBD62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				179758861F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 */,
-				179758871F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 */,
-				179758881F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 */,
-				179758891F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 */,
-				1797588A1F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 */,
-				1797588B1F4C99B70035F59A /* soundName.mp3 */,
-				1797588C1F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 */,
-				1797588D1F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 */,
+				141CDFD71F4ADA3C00080F4E /* AppDelegate.swift */,
+				141CDFE01F4ADA3D00080F4E /* Assets.xcassets */,
+				141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */,
+				141CDFE51F4ADA3D00080F4E /* Info.plist */,
 			);
-			name = mp3;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14790BF11F502CC2005CBD62 /* Customized cell */ = {
+			isa = PBXGroup;
+			children = (
+				14790BE81F4FE4A1005CBD62 /* PlayerView.xib */,
+				14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */,
+			);
+			name = "Customized cell";
 			sourceTree = "<group>";
 		};
 		71E4EAE1E739843228408CFD /* Pods */ = {
@@ -195,17 +191,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1797588F1F4C99B70035F59A /* Duoi-Nhung-Con-Mua-Mr-Siro.mp3 in Resources */,
-				1797588E1F4C99B70035F59A /* Chua-Bao-Gio-Trung-Quan-Idol.mp3 in Resources */,
-				179758921F4C99B70035F59A /* Ngoi-Hat-Do-Buon-Co-Gai-Den-Tu-Hom-Qua-OST-Truc-Nhan.mp3 in Resources */,
-				179758901F4C99B70035F59A /* Goi-Mua-Trung-Quan-Idol.mp3 in Resources */,
-				179758931F4C99B70035F59A /* soundName.mp3 in Resources */,
 				141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */,
 				141CDFE11F4ADA3D00080F4E /* Assets.xcassets in Resources */,
-				179758911F4C99B70035F59A /* Mua-Yeu-Cu-Trung-Quan-Idol.mp3 in Resources */,
 				141CDFDF1F4ADA3C00080F4E /* Main.storyboard in Resources */,
-				179758951F4C99B70035F59A /* Trot-Yeu-Trung-Quan-Idol.mp3 in Resources */,
-				179758941F4C99B70035F59A /* Tha-Vao-Mua-Trung-Quan-Idol.mp3 in Resources */,
+				14790BE91F4FE4A1005CBD62 /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14790BED1F500D5E005CBD62 /* TabBarViewController.swift in Sources */,
 				141CDFDC1F4ADA3C00080F4E /* AlbumsViewController.swift in Sources */,
+				14790BEF1F501E88005CBD62 /* Constant.swift in Sources */,
 				141CDFD81F4ADA3C00080F4E /* AppDelegate.swift in Sources */,
+				14790BEB1F4FE4B6005CBD62 /* PlayerView.swift in Sources */,
 				1451338B1F4EAB4A00A8AB58 /* SongQuerry.swift in Sources */,
 				141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */,
 				141CDFDA1F4ADA3C00080F4E /* SongsListViewController.swift in Sources */,

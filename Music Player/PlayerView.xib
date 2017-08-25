@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerView" customModule="Music_Player" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="LdR-FE-0Hf"/>
+                <outlet property="imgSongIcon" destination="QtD-ve-tQO" id="YaA-PR-FcE"/>
+                <outlet property="lblSongArtist" destination="BLQ-Kr-pnK" id="TiU-Dm-oK1"/>
+                <outlet property="lblSongname" destination="fhC-XE-vCw" id="zBv-6J-wYU"/>
+                <outlet property="progressView" destination="1NJ-E0-xxZ" id="DcO-OY-dla"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="491" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEh-Ij-DoR">
+                    <rect key="frame" x="0.0" y="23" width="491" height="60"/>
+                    <subviews>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1NJ-E0-xxZ">
+                            <rect key="frame" x="0.0" y="-23" width="491" height="2"/>
+                        </progressView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="QtD-ve-tQO">
+                            <rect key="frame" x="5" y="0.0" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="c2o-ki-eCy"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-yi-vch">
+                            <rect key="frame" x="75" y="0.0" width="39" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhC-XE-vCw">
+                                    <rect key="frame" x="0.0" y="0.0" width="39" height="27.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLQ-Kr-pnK">
+                                    <rect key="frame" x="0.0" y="32.5" width="33" height="27.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLr-9i-hRZ">
+                            <rect key="frame" x="456" y="15" width="30" height="30"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="aLr-9i-hRZ" secondAttribute="height" multiplier="1:1" id="fix-Np-rr7"/>
+                            </constraints>
+                            <state key="normal" title="Play" image="play-128"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="aLr-9i-hRZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uOr-yi-vch" secondAttribute="trailing" constant="8" id="BDb-hZ-ff8"/>
+                        <constraint firstItem="QtD-ve-tQO" firstAttribute="height" secondItem="GEh-Ij-DoR" secondAttribute="height" id="EUS-4L-o5E"/>
+                        <constraint firstItem="aLr-9i-hRZ" firstAttribute="height" secondItem="GEh-Ij-DoR" secondAttribute="height" constant="-30" id="KhI-8F-AU2"/>
+                        <constraint firstItem="uOr-yi-vch" firstAttribute="height" secondItem="GEh-Ij-DoR" secondAttribute="height" id="NCU-BQ-NpX"/>
+                        <constraint firstItem="1NJ-E0-xxZ" firstAttribute="centerX" secondItem="GEh-Ij-DoR" secondAttribute="centerX" id="PAR-gO-C5G"/>
+                        <constraint firstAttribute="trailing" secondItem="aLr-9i-hRZ" secondAttribute="trailing" constant="5" id="Pno-Zz-1aF"/>
+                        <constraint firstItem="QtD-ve-tQO" firstAttribute="centerY" secondItem="GEh-Ij-DoR" secondAttribute="centerY" id="Ru1-vY-4An"/>
+                        <constraint firstItem="QtD-ve-tQO" firstAttribute="leading" secondItem="GEh-Ij-DoR" secondAttribute="leading" constant="5" id="eNE-Ez-BMl"/>
+                        <constraint firstItem="uOr-yi-vch" firstAttribute="centerY" secondItem="GEh-Ij-DoR" secondAttribute="centerY" id="fnv-1v-Fad"/>
+                        <constraint firstItem="QtD-ve-tQO" firstAttribute="width" secondItem="GEh-Ij-DoR" secondAttribute="height" multiplier="1:1" id="hoV-eO-U8j"/>
+                        <constraint firstItem="1NJ-E0-xxZ" firstAttribute="leading" secondItem="GEh-Ij-DoR" secondAttribute="leading" id="joV-jv-2tF"/>
+                        <constraint firstItem="aLr-9i-hRZ" firstAttribute="centerY" secondItem="GEh-Ij-DoR" secondAttribute="centerY" id="mNi-HI-Mz4"/>
+                        <constraint firstItem="uOr-yi-vch" firstAttribute="leading" secondItem="QtD-ve-tQO" secondAttribute="trailing" constant="10" id="nZp-xc-ZIY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GEh-Ij-DoR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FlR-0y-QXO"/>
+                <constraint firstItem="1NJ-E0-xxZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fkS-ce-DDZ"/>
+                <constraint firstItem="GEh-Ij-DoR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tKR-II-dBJ"/>
+                <constraint firstItem="GEh-Ij-DoR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="y1L-qY-Ofe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-5.5" y="-205"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="note" width="170" height="170"/>
+        <image name="play-128" width="128" height="128"/>
+    </resources>
+</document>

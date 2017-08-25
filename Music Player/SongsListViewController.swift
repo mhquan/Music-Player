@@ -10,23 +10,22 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-var audioPlayer = AVAudioPlayer()
-var songsDisplayName: [String] = []
-var songsDisplayNameFilterd: [String] = []
-var songsRealName: [String] = []
-var thisSong = 0
-var audioStuffed = false
-let audioInfo = MPNowPlayingInfoCenter.default()
-var mediaPicker: MPMediaPickerController?
-var myMusicPlayer: MPMusicPlayerController?
-let masterVolumeSlider: MPVolumeView = MPVolumeView()
-let shouldShowSearchResults = false
-var albums: [AlbumInfo] = []
-var songQuery: SongQuery = SongQuery()
+
 
 class SongListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
-    
 
+    var songsDisplayName: [String] = []
+    var songsDisplayNameFilterd: [String] = []
+    var songsRealName: [String] = []
+    var thisSong: NSNumber = 0
+    var audioStuffed = false
+    let audioInfo = MPNowPlayingInfoCenter.default()
+    var mediaPicker: MPMediaPickerController?
+    var myMusicPlayer: MPMusicPlayerController?
+    let masterVolumeSlider: MPVolumeView = MPVolumeView()
+    let shouldShowSearchResults = false
+    var albums: [AlbumInfo] = []
+    var songQuery: SongQuery = SongQuery()
 
     @IBOutlet weak var myTableView: UITableView!
 
@@ -35,13 +34,13 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 //        gettingSongNames()
         getSongs()
-        
+
     }
 
     func getSongs() {
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
-                albums = songQuery.get(songCategory: "")
+                self.albums = self.songQuery.get(songCategory: "Song")
                 DispatchQueue.main.async {
                     self.myTableView?.rowHeight = UITableViewAutomaticDimension
                     self.myTableView?.estimatedRowHeight = 60.0
@@ -117,6 +116,7 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return albums.count
     }
+ 
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -132,13 +132,13 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-         let cellTag2 = cell.viewWithTag(2) as! UILabel
-         cellTag2.text = albums[indexPath.section].songs[indexPath.row].songTitle
+
+        let cellTag2 = cell.viewWithTag(2) as! UILabel
+        cellTag2.text = albums[indexPath.section].songs[indexPath.row].songTitle
 
         let cellTag3 = cell.viewWithTag(3) as! UILabel
         cellTag3.text = albums[indexPath.section].songs[indexPath.row].artistName
-        
+
         let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = songQuery.getItem(songId: songId)
 
@@ -148,34 +148,34 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return cell
     }
-
-    /*
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-        return albums[section].albumTitle
-    }
-    */
+ 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-/*
+        /*
         let audioPath = Bundle.main.path(forResource: songsRealName[indexPath.row], ofType: ".mp3")
         UserDefaults.standard.set(audioPath, forKey: "thisSong")
 //            audioPlayer.play()
         thisSong = indexPath.row
-*/
 
+        
         let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = songQuery.getItem(songId: songId)
         let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL ) as! URL
-        UserDefaults.standard.set(url, forKey: "url")
-        print(url)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        audioPlayer.play()
-        
+
+*/
         self.title = albums[indexPath.section].songs[indexPath.row].songTitle
-        
+
         performSegue(withIdentifier: "player", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "player",
+            let nextScene = segue.destination as? PlayerViewController,
+            let indexPath = myTableView.indexPathForSelectedRow {
+            let selectedSongID = albums[indexPath.section].songs[indexPath.row].songId
+            nextScene.songID = selectedSongID
+        }
     }
 
 }

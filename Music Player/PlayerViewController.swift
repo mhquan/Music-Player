@@ -9,8 +9,13 @@
 import UIKit
 import AVFoundation
 import CircularSlider
+import MediaPlayer
 
-class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var songID = NSNumber()
+     var audioPlayer = AVAudioPlayer()
+    var albums: [AlbumInfo] = []
+    var songQuery: SongQuery = SongQuery()
     
     @IBOutlet weak var circularSlider: CircularSlider!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,7 +29,13 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         */
 //        playMusic()
         setupCircularSlider()
-        
+        let item: MPMediaItem = SongQuery().getItem(songId: songID)
+        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
+        UserDefaults.standard.set(url, forKey: "url")
+        print(url)
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer.play()
+
     }
     /*
     func playMusic() {
@@ -39,10 +50,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     */
-    
+
     //MARK: set up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return albums[section].songs.count
+        return albums[section].songs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,19 +63,15 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let audioPath = Bundle.main.path(forResource: songsRealName[indexPath.row], ofType: ".mp3")
-        UserDefaults.standard.set(audioPath, forKey: "thisSong")
-//        playMusic()
+
     }
-    
-    
 
     // MARK: - methods
     fileprivate func setupCircularSlider() {
         circularSlider.delegate = self
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayerViewController.updateSliderProgress), userInfo: nil, repeats: true)
     }
-    
+
     /*
     fileprivate func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -103,7 +110,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lblTime.text = getHoursMinutesSecondsFrom(seconds: progress)
 
     }
-    
+
     func getHoursMinutesSecondsFrom(seconds: Double) -> String {
         let secs = Int(seconds)
 //        let hours = secs / 3600
@@ -114,36 +121,37 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let date: Date? = dateFormatter.date(from: "\(minutes)" + " : " + "\(seconds)")
         return dateFormatter.string(from: date!)
     }
-
+    func playDidPress() {
+        if audioPlayer.isPlaying == false {
+            audioPlayer.play()
+        } else if audioPlayer.isPlaying {
+            audioPlayer.pause()
+        }
+    }
     @IBAction func btnRepeat(_ sender: Any) {
         print("1")
     }
     @IBAction func btnShuffle(_ sender: Any) {
-                print("1")
+        print("1")
     }
     @IBAction func btnPrevious(_ sender: Any) {
-                print("1")
+        print("1")
     }
     @IBAction func btnNext(_ sender: Any) {
-                print("1")
+        print("1")
     }
     @IBAction func btnPlay(_ sender: Any) {
         playDidPress()
     }
-    
-}
-func playDidPress() {
-    if audioPlayer.isPlaying == false {
-        audioPlayer.play()
-    } else if audioPlayer.isPlaying {
-        audioPlayer.pause()
-    }
-    
+
 }
 extension PlayerViewController: CircularSliderDelegate {
     func circularSlider(_ circularSlider: CircularSlider, valueForValue value: Float) -> Float {
 
-        let asset = AVURLAsset(url: URL(fileURLWithPath: UserDefaults.standard.object(forKey: "url") as! String))
+//        let asset = AVURLAsset(url: URL(fileURLWithPath: UserDefaults.standard.object(forKey: "url") as! String))
+        let item: MPMediaItem = songQuery.getItem(songId: songID)
+        let url = item.value(forProperty: MPMediaItemPropertyAssetURL)
+        let asset = AVURLAsset(url: URL(fileURLWithPath: url as! String))
         circularSlider.minimumValue = 0
         circularSlider.maximumValue = Float(Double(CMTimeGetSeconds(asset.duration)))
 //        audioPlayer.currentTime = TimeInterval(circularSlider.value)
