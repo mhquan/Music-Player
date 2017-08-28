@@ -58,8 +58,6 @@ class SongQuery {
                     albumTitle = song.value(forProperty: MPMediaItemPropertyAlbumTitle) as! String
                 } else if songCategory == "Song" {
                     albumTitle = song.value(forProperty: MPMediaItemPropertyAlbumTitle) as! String
-
-
                 } else {
                     albumTitle = song.value(forProperty: MPMediaItemPropertyAlbumTitle) as! String
                 }
@@ -87,7 +85,7 @@ class SongQuery {
             )
             albums.append(albumInfo)
         }
-        return albums
+        return albums + albums
 
     }
 

@@ -14,18 +14,7 @@ import MediaPlayer
 
 class SongListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
 
-    var songsDisplayName: [String] = []
-    var songsDisplayNameFilterd: [String] = []
-    var songsRealName: [String] = []
-    var thisSong: NSNumber = 0
-    var audioStuffed = false
-    let audioInfo = MPNowPlayingInfoCenter.default()
-    var mediaPicker: MPMediaPickerController?
-    var myMusicPlayer: MPMusicPlayerController?
-    let masterVolumeSlider: MPVolumeView = MPVolumeView()
-    let shouldShowSearchResults = false
-    var albums: [AlbumInfo] = []
-    var songQuery: SongQuery = SongQuery()
+
 
     @IBOutlet weak var myTableView: UITableView!
 
@@ -34,13 +23,13 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 //        gettingSongNames()
         getSongs()
-
+        myTableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - PLAYER_CONTTROLLER_HEIGHT - (tabBarController?.tabBar.bounds.size.height ?? 0)! - (navigationController?.navigationBar.bounds.size.height ?? 0)!).isActive = true
     }
 
     func getSongs() {
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
-                self.albums = self.songQuery.get(songCategory: "Song")
+                albums = songQuery.get(songCategory: "Song")
                 DispatchQueue.main.async {
                     self.myTableView?.rowHeight = UITableViewAutomaticDimension
                     self.myTableView?.estimatedRowHeight = 60.0
@@ -116,16 +105,12 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return albums.count
     }
- 
 
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if shouldShowSearchResults {
             return albums[section].songs.count
-        }
-            else {
-                return albums[section].songs.count
+        } else {
+            return albums[section].songs.count
         }
 
     }
@@ -148,26 +133,20 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return cell
     }
- 
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        /*
-        let audioPath = Bundle.main.path(forResource: songsRealName[indexPath.row], ofType: ".mp3")
-        UserDefaults.standard.set(audioPath, forKey: "thisSong")
-//            audioPlayer.play()
-        thisSong = indexPath.row
-
+        self.title = albums[indexPath.section].songs[indexPath.row].songTitle
+        performSegue(withIdentifier: "player", sender: nil)
         
         let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = songQuery.getItem(songId: songId)
-        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL ) as! URL
-
-*/
-        self.title = albums[indexPath.section].songs[indexPath.row].songTitle
-
-        performSegue(withIdentifier: "player", sender: nil)
+        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
+        print(url)
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer.play()
     }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "player",

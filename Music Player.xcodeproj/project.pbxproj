@@ -16,6 +16,8 @@
 		141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */; };
 		141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */; };
 		1451338B1F4EAB4A00A8AB58 /* SongQuerry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */; };
+		1452FBA41F53B8CA00B226E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452FBA31F53B8CA00B226E9 /* Player.swift */; };
+		1452FBA61F53F6F800B226E9 /* GM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1452FBA51F53F6F800B226E9 /* GM.mp3 */; };
 		14790BE91F4FE4A1005CBD62 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14790BE81F4FE4A1005CBD62 /* PlayerView.xib */; };
 		14790BEB1F4FE4B6005CBD62 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */; };
 		14790BED1F500D5E005CBD62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */; };
@@ -36,6 +38,8 @@
 		141CDFE51F4ADA3D00080F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongQuerry.swift; sourceTree = "<group>"; };
+		1452FBA31F53B8CA00B226E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1452FBA51F53F6F800B226E9 /* GM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GM.mp3; sourceTree = "<group>"; };
 		14790BE81F4FE4A1005CBD62 /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				141CDFDD1F4ADA3C00080F4E /* Main.storyboard */,
-				14790BEE1F501E88005CBD62 /* Constant.swift */,
+				1452FBA31F53B8CA00B226E9 /* Player.swift */,
 				1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */,
 				141CDFD91F4ADA3C00080F4E /* SongsListViewController.swift */,
 				141B83991F4BD9F500725933 /* PlayerViewController.swift */,
@@ -94,6 +98,8 @@
 		14790BF01F502CB1005CBD62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14790BEE1F501E88005CBD62 /* Constant.swift */,
+				1452FBA51F53F6F800B226E9 /* GM.mp3 */,
 				141CDFD71F4ADA3C00080F4E /* AppDelegate.swift */,
 				141CDFE01F4ADA3D00080F4E /* Assets.xcassets */,
 				141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */,
@@ -163,7 +169,7 @@
 				TargetAttributes = {
 					141CDFD31F4ADA3B00080F4E = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = PYAF73A2GE;
+						DevelopmentTeam = CDXLQEAZX5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -191,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1452FBA61F53F6F800B226E9 /* GM.mp3 in Resources */,
 				141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */,
 				141CDFE11F4ADA3D00080F4E /* Assets.xcassets in Resources */,
 				141CDFDF1F4ADA3C00080F4E /* Main.storyboard in Resources */,
@@ -267,6 +274,7 @@
 				1451338B1F4EAB4A00A8AB58 /* SongQuerry.swift in Sources */,
 				141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */,
 				141CDFDA1F4ADA3C00080F4E /* SongsListViewController.swift in Sources */,
+				1452FBA41F53B8CA00B226E9 /* Player.swift in Sources */,
 				141B839A1F4BD9F500725933 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,12 +401,12 @@
 			baseConfigurationReference = 1AEC0B4BAEB5F5BA814E8A8E /* Pods-Music Player.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PYAF73A2GE;
+				DEVELOPMENT_TEAM = CDXLQEAZX5;
 				INFOPLIST_FILE = "Music Player/Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player2";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -409,12 +417,12 @@
 			baseConfigurationReference = 140958D087C6F20FF4DA90DB /* Pods-Music Player.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PYAF73A2GE;
+				DEVELOPMENT_TEAM = CDXLQEAZX5;
 				INFOPLIST_FILE = "Music Player/Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player2";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
