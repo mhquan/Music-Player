@@ -15,6 +15,9 @@ class PlayerView: UIView {
     @IBOutlet weak var lblSongArtist: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
+    @IBAction func btnPlay(_ sender: Any) {
+        MyAudioPlayer.sharedPlayer.play()
+    }
     
     @IBOutlet weak var contentView: UIView!
     // MARK: - Initializers

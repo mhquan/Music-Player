@@ -13,15 +13,15 @@ import MediaPlayer
 
 
 class SongListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
-
-
+    var albums: [AlbumInfo] = []
+    let albumsQuery = MPMediaQuery()
+    var songQuery: SongQuery = SongQuery()
 
     @IBOutlet weak var myTableView: UITableView!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//        gettingSongNames()
+
         getSongs()
         myTableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - PLAYER_CONTTROLLER_HEIGHT - (tabBarController?.tabBar.bounds.size.height ?? 0)! - (navigationController?.navigationBar.bounds.size.height ?? 0)!).isActive = true
     }
@@ -29,11 +29,12 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     func getSongs() {
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
-                albums = songQuery.get(songCategory: "Song")
+                self.albums = self.songQuery.get(songCategory: "Song")
+                self.myTableView?.reloadData()
                 DispatchQueue.main.async {
                     self.myTableView?.rowHeight = UITableViewAutomaticDimension
                     self.myTableView?.estimatedRowHeight = 60.0
-                    self.myTableView?.reloadData()
+                    self.myTableView.reloadData()
                 }
             } else {
                 self.displayMediaLibraryError()
@@ -107,12 +108,7 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if shouldShowSearchResults {
-            return albums[section].songs.count
-        } else {
-            return albums[section].songs.count
-        }
-
+        return albums[section].songs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,6 +126,9 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         if let imageSound: MPMediaItemArtwork = item.value(forProperty: MPMediaItemPropertyArtwork) as? MPMediaItemArtwork {
             let cellTag1 = cell.viewWithTag(1) as! UIImageView
             cellTag1.image = imageSound.image(at: CGSize(width: cellTag1.frame.size.width, height: cellTag1.frame.size.height))
+        } else {
+            let cellTag1 = cell.viewWithTag(1) as! UIImageView
+            cellTag1.image = UIImage(named: "note") 
         }
         return cell
     }
@@ -138,13 +137,18 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.title = albums[indexPath.section].songs[indexPath.row].songTitle
         performSegue(withIdentifier: "player", sender: nil)
-        
+        let currentSong = albums[indexPath.section].songs[indexPath.row]
+        MyAudioPlayer.sharedPlayer.thisSong = currentSong
+        /*
         let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = songQuery.getItem(songId: songId)
         let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
         print(url)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        audioPlayer.play()
+        MyAudioPlayer.sharedPlayer.audioPlayer = try! AVAudioPlayer(contentsOf: url)
+
+        MyAudioPlayer.sharedPlayer.audioPlayer.play()
+        */
+        MyAudioPlayer.sharedPlayer.play()
     }
 
 
@@ -152,8 +156,8 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "player",
             let nextScene = segue.destination as? PlayerViewController,
             let indexPath = myTableView.indexPathForSelectedRow {
-            let selectedSongID = albums[indexPath.section].songs[indexPath.row].songId
-            nextScene.songID = selectedSongID
+            let currentSong = albums[indexPath.section].songs[indexPath.row]
+            nextScene.currentSong = currentSong
         }
     }
 

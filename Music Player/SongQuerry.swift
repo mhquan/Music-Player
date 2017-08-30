@@ -7,18 +7,6 @@
 //
 import MediaPlayer
 import Foundation
-struct SongInfo {
-
-    var albumTitle: String
-    var artistName: String
-    var songTitle: String
-    var songId: NSNumber
-}
-
-struct AlbumInfo {
-    var albumTitle: String
-    var songs: [SongInfo]
-}
 
 class SongQuery {
 
@@ -28,18 +16,16 @@ class SongQuery {
         let albumsQuery: MPMediaQuery
         if songCategory == "Artist" {
             albumsQuery = MPMediaQuery.artists()
-
         } else if songCategory == "Album" {
             albumsQuery = MPMediaQuery.albums()
         } else if songCategory == "Song" {
             albumsQuery = MPMediaQuery.songs()
-        } else {
+        }else {
             albumsQuery = MPMediaQuery.albums()
         }
-
-
+        
         // let albumsQuery: MPMediaQuery = MPMediaQuery.albums()
-        let albumItems: [MPMediaItemCollection] = albumsQuery.collections! as [MPMediaItemCollection]
+        let albumItems: [MPMediaItemCollection] = albumsQuery.collections! as [MPMediaItemCollection] 
         //  var album: MPMediaItemCollection
 
         for album in albumItems {
@@ -53,7 +39,6 @@ class SongQuery {
             for song in albumItems {
                 if songCategory == "Artist" {
                     albumTitle = song.value(forProperty: MPMediaItemPropertyArtist) as! String
-
                 } else if songCategory == "Album" {
                     albumTitle = song.value(forProperty: MPMediaItemPropertyAlbumTitle) as! String
                 } else if songCategory == "Song" {
@@ -86,7 +71,7 @@ class SongQuery {
             albums.append(albumInfo)
         }
         return albums + albums
-
+            
     }
 
     func getItem(songId: NSNumber) -> MPMediaItem {

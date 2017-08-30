@@ -44,6 +44,9 @@
                     </constraints>
                     <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                     <state key="normal" image="play-128"/>
+                    <connections>
+                        <action selector="btnPlay:" destination="-1" eventType="touchUpInside" id="Goa-UN-ykI"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhC-XE-vCw">
                     <rect key="frame" x="61" y="10" width="39" height="18"/>

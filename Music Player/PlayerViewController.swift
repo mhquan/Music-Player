@@ -12,109 +12,71 @@ import CircularSlider
 import MediaPlayer
 
 class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var songID = NSNumber()
-
+    var currentSong: SongInfo? = MyAudioPlayer.sharedPlayer.thisSong
+    var songList: [AlbumInfo] = []
+    let albumsQuery = MPMediaQuery()
+    var songQuery: SongQuery = SongQuery()
 
 
     @IBOutlet weak var circularSlider: CircularSlider!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var lblSongTitle: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SongListViewController().getSongs()
-        /*
-        registerForKeyboardNotifications()
-        setupTapGesture()
-        */
-//        playMusic()
+        getSongs()
         setupCircularSlider()
-        /*
-        let item: MPMediaItem = SongQuery().getItem(songId: songID)
-        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
-        print(url)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        audioPlayer.play()
-
-        */
-
+        lblSongTitle.text = currentSong?.songTitle
     }
+
+    func getSongs() {
+        MPMediaLibrary.requestAuthorization { (status) in
+            self.songList = self.songQuery.get(songCategory: "Song")
+            self.myTableView?.reloadData()
+        }
+    }
+
     //MARK: set up table view
     func numberOfSections(in tableView: UITableView) -> Int {
-        return albums.count
+        return songList.count
     }
 
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        if shouldShowSearchResults {
-            return albums[section].songs.count
-        }
-            else {
-                return albums[section].songs.count
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songList[section].songs.count
     }
-
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = albums[indexPath.section].songs[indexPath.row].songTitle
-
+        cell.textLabel?.text = songList[indexPath.section].songs[indexPath.row].songTitle
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
-        let item: MPMediaItem = songQuery.getItem(songId: songId)
-        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
-        print(url)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        audioPlayer.play()
+        let songId: NSNumber = songList[indexPath.section].songs[indexPath.row].songId
+        MyAudioPlayer.sharedPlayer.thisSong?.songId = songId
+        MyAudioPlayer.sharedPlayer.play()
     }
 
-    // MARK: - methods
+    // MARK: - setupCircularSlider
     fileprivate func setupCircularSlider() {
         circularSlider.delegate = self
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayerViewController.updateSliderProgress), userInfo: nil, repeats: true)
+        print(circularSlider.value)
+        if currentSong?.songId != nil {
+            let item: MPMediaItem = songQuery.getItem(songId: (currentSong?.songId)!)
+            let url = item.value(forProperty: MPMediaItemPropertyAssetURL)
+            let asset = AVURLAsset(url: url as! URL)
+            circularSlider.minimumValue = 0
+            circularSlider.maximumValue = Float(Double(CMTimeGetSeconds(asset.duration)))
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayerViewController.updateSliderProgress), userInfo: nil, repeats: true)
+        }
     }
 
-    /*
-    fileprivate func setupTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-
-    // MARK: - keyboard handler
-    fileprivate func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-
-    @objc fileprivate func keyboardWillShow(_ notification: Notification) {
-        adjustInsetForKeyboardShow(true, notification: notification)
-    }
-
-    @objc fileprivate func keyboardWillHide(_ notification: Notification) {
-        adjustInsetForKeyboardShow(false, notification: notification)
-    }
-
-    fileprivate func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
-        guard let value = (notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = value.cgRectValue
-        let adjustmentHeight = (keyboardFrame.height + 150) * (show ? 1 : -1)
-        scrollView.contentInset.bottom += adjustmentHeight
-        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
-    }
-
-    @objc fileprivate func hideKeyboard() {
-        view.endEditing(true)
-    }
-    */
     func updateSliderProgress() {
-        let progress = audioPlayer.currentTime
+        let progress = MyAudioPlayer.sharedPlayer.audioPlayer.currentTime
+//        print(MyAudioPlayer().audioPlayer.currentTime)
         circularSlider.setValue(Float(progress), animated: true)
         lblTime.text = getHoursMinutesSecondsFrom(seconds: progress)
-
     }
 
     func getHoursMinutesSecondsFrom(seconds: Double) -> String {
@@ -129,19 +91,19 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func btnRepeat(_ sender: Any) {
-        print("1")
+        print("btnRepeat")
     }
     @IBAction func btnShuffle(_ sender: Any) {
-        print("1")
+        print("btnShuffle")
     }
     @IBAction func btnPrevious(_ sender: Any) {
-        print("1")
+        print("btnPrevious")
     }
     @IBAction func btnNext(_ sender: Any) {
-        print("1")
+        print("btnNext")
     }
     @IBAction func btnPlay(_ sender: Any) {
-        playDidPress()
+        MyAudioPlayer.sharedPlayer.play()
     }
 
     @IBAction func btnClose(_ sender: Any) {
@@ -152,13 +114,9 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension PlayerViewController: CircularSliderDelegate {
     func circularSlider(_ circularSlider: CircularSlider, valueForValue value: Float) -> Float {
 
-//        let asset = AVURLAsset(url: URL(fileURLWithPath: UserDefaults.standard.object(forKey: "url") as! String))
-        let item: MPMediaItem = songQuery.getItem(songId: songID)
-        let url = item.value(forProperty: MPMediaItemPropertyAssetURL)
-        let asset = AVURLAsset(url: url as! URL)
-        circularSlider.minimumValue = 0
-        circularSlider.maximumValue = Float(Double(CMTimeGetSeconds(asset.duration)))
-//        audioPlayer.currentTime = TimeInterval(circularSlider.value)
+
+//        MyAudioPlayer().audioPlayer.currentTime = TimeInterval(circularSlider.value)
+
         return floorf(value)
     }
 }
