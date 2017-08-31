@@ -20,12 +20,12 @@ class SongQuery {
             albumsQuery = MPMediaQuery.albums()
         } else if songCategory == "Song" {
             albumsQuery = MPMediaQuery.songs()
-        }else {
+        } else {
             albumsQuery = MPMediaQuery.albums()
         }
         
         // let albumsQuery: MPMediaQuery = MPMediaQuery.albums()
-        let albumItems: [MPMediaItemCollection] = albumsQuery.collections! as [MPMediaItemCollection] 
+        if let albumItems: [MPMediaItemCollection] = albumsQuery.collections {
         //  var album: MPMediaItemCollection
 
         for album in albumItems {
@@ -70,21 +70,16 @@ class SongQuery {
             )
             albums.append(albumInfo)
         }
-        return albums + albums
             
+        }
+        return albums
     }
 
     func getItem(songId: NSNumber) -> MPMediaItem {
-
         let property: MPMediaPropertyPredicate = MPMediaPropertyPredicate(value: songId, forProperty: MPMediaItemPropertyPersistentID)
-
         let query: MPMediaQuery = MPMediaQuery()
         query.addFilterPredicate(property)
-
         var items: [MPMediaItem] = query.items! as [MPMediaItem]
-
         return items[items.count - 1]
-
     }
-
 }

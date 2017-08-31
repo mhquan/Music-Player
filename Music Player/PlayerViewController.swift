@@ -12,11 +12,11 @@ import CircularSlider
 import MediaPlayer
 
 class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var currentSong: SongInfo? = MyAudioPlayer.sharedPlayer.thisSong
-    var songList: [AlbumInfo] = []
+    var currentSong: SongInfo?
+    var songList: [SongInfo]?
     let albumsQuery = MPMediaQuery()
     var songQuery: SongQuery = SongQuery()
-
+    var songListName: [String]?
 
     @IBOutlet weak var circularSlider: CircularSlider!
     @IBOutlet weak var lblTime: UILabel!
@@ -25,43 +25,50 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getSongs()
+        songListName = MyAudioPlayer.sharedPlayer.songListName
+//        getSongs()
         setupCircularSlider()
         lblSongTitle.text = currentSong?.songTitle
     }
 
+    /*
     func getSongs() {
         MPMediaLibrary.requestAuthorization { (status) in
             self.songList = self.songQuery.get(songCategory: "Song")
             self.myTableView?.reloadData()
         }
     }
+    */
 
     //MARK: set up table view
     func numberOfSections(in tableView: UITableView) -> Int {
-        return songList.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songList[section].songs.count
+        print(songListName?.count ?? nil)
+        return songListName!.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = songList[indexPath.section].songs[indexPath.row].songTitle
+        cell.textLabel?.text = songListName?[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let songId: NSNumber = songList[indexPath.section].songs[indexPath.row].songId
-        MyAudioPlayer.sharedPlayer.thisSong?.songId = songId
+        let currentSong = songList?[indexPath.row]
+        MyAudioPlayer.sharedPlayer.thisSong = currentSong
         MyAudioPlayer.sharedPlayer.play()
+        lblSongTitle.text = currentSong?.songTitle
     }
 
     // MARK: - setupCircularSlider
     fileprivate func setupCircularSlider() {
         circularSlider.delegate = self
-        print(circularSlider.value)
+        print(TimeInterval(circularSlider.value.advanced(by: 2)))
+//        MyAudioPlayer.sharedPlayer.audioPlayer.play(atTime: TimeInterval(circularSlider.value))
+
         if currentSong?.songId != nil {
             let item: MPMediaItem = songQuery.getItem(songId: (currentSong?.songId)!)
             let url = item.value(forProperty: MPMediaItemPropertyAssetURL)
@@ -74,7 +81,6 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func updateSliderProgress() {
         let progress = MyAudioPlayer.sharedPlayer.audioPlayer.currentTime
-//        print(MyAudioPlayer().audioPlayer.currentTime)
         circularSlider.setValue(Float(progress), animated: true)
         lblTime.text = getHoursMinutesSecondsFrom(seconds: progress)
     }
@@ -103,7 +109,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("btnNext")
     }
     @IBAction func btnPlay(_ sender: Any) {
-        MyAudioPlayer.sharedPlayer.play()
+        MyAudioPlayer.sharedPlayer.playAndPause()
     }
 
     @IBAction func btnClose(_ sender: Any) {
@@ -113,10 +119,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 extension PlayerViewController: CircularSliderDelegate {
     func circularSlider(_ circularSlider: CircularSlider, valueForValue value: Float) -> Float {
-
-
-//        MyAudioPlayer().audioPlayer.currentTime = TimeInterval(circularSlider.value)
-
+//MyAudioPlayer.sharedPlayer.audioPlayer.currentTime = TimeInterval(circularSlider.value)
         return floorf(value)
     }
 }

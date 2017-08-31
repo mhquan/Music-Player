@@ -16,7 +16,7 @@ class PlayerView: UIView {
     @IBOutlet weak var progressView: UIProgressView!
     
     @IBAction func btnPlay(_ sender: Any) {
-        MyAudioPlayer.sharedPlayer.play()
+        MyAudioPlayer.sharedPlayer.playAndPause()
     }
     
     @IBOutlet weak var contentView: UIView!

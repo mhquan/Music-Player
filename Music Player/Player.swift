@@ -23,7 +23,10 @@ struct AlbumInfo {
 }
 
 class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
-
+    var albumInfo: AlbumInfo?
+    var albums: [AlbumInfo] = []
+    var songList: [SongInfo] = []
+    var songListName: [String] = []
     var thisSong: SongInfo?
     var audioStuffed = false
     let audioInfo = MPNowPlayingInfoCenter.default()
@@ -45,7 +48,6 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
     }()
 
     private override init() {
-
     }
 
     func play() {
@@ -53,11 +55,17 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
         if songID != 0 && songID != nil {
             let item: MPMediaItem = SongQuery().getItem(songId: songID!)
             let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
-            print(url)
             audioPlayer = try! AVAudioPlayer(contentsOf: url)
             audioPlayer.play()
         } else if songID == nil {
             print("songID = nil")
+        }
+    }
+    func playAndPause() {
+        if audioPlayer.isPlaying {
+            audioPlayer.pause()
+        } else {
+            audioPlayer.play()
         }
     }
 }

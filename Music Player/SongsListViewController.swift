@@ -13,24 +13,24 @@ import MediaPlayer
 
 
 class SongListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
-    var albums: [AlbumInfo] = []
+    var albums: [AlbumInfo] = [AlbumInfo]()
     let albumsQuery = MPMediaQuery()
     var songQuery: SongQuery = SongQuery()
+    var songListName: [String] = []
+    var songList: [SongInfo] = []
 
     @IBOutlet weak var myTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         getSongs()
-        myTableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - PLAYER_CONTTROLLER_HEIGHT - (tabBarController?.tabBar.bounds.size.height ?? 0)! - (navigationController?.navigationBar.bounds.size.height ?? 0)!).isActive = true
     }
 
     func getSongs() {
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
                 self.albums = self.songQuery.get(songCategory: "Song")
-                self.myTableView?.reloadData()
+                MyAudioPlayer.sharedPlayer.albums = self.albums
                 DispatchQueue.main.async {
                     self.myTableView?.rowHeight = UITableViewAutomaticDimension
                     self.myTableView?.estimatedRowHeight = 60.0
@@ -66,33 +66,6 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         present(controller, animated: true, completion: nil)
     }
 
-//
-
-    /*
-    func gettingSongNames() {
-        let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath!)
-        do {
-            let songPath = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-
-            for song in songPath {
-                var mySong = song.absoluteString
-                if mySong.contains(".mp3") {
-                    let findString = mySong.components(separatedBy: "/")
-                    mySong = findString[findString.count - 1]
-                    mySong = mySong.replacingOccurrences(of: ".mp3", with: "")
-                    songsRealName.append(mySong)
-                    mySong = mySong.replacingOccurrences(of: "%20", with: " ")
-                    mySong = mySong.replacingOccurrences(of: "-", with: " ")
-                    songsDisplayName.append(mySong)
-                }
-            }
-            myTableView.reloadData()
-        }
-        catch {
-            print ("ERROR")
-        }
-    }
-    */
 
     @IBAction func moveToPlayer(_ sender: Any) {
         performSegue(withIdentifier: "player", sender: nil)
@@ -109,6 +82,7 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums[section].songs.count
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,31 +102,33 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
             cellTag1.image = imageSound.image(at: CGSize(width: cellTag1.frame.size.width, height: cellTag1.frame.size.height))
         } else {
             let cellTag1 = cell.viewWithTag(1) as! UIImageView
-            cellTag1.image = UIImage(named: "note") 
+            cellTag1.image = UIImage(named: "note")
         }
         return cell
     }
-
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.title = albums[indexPath.section].songs[indexPath.row].songTitle
         performSegue(withIdentifier: "player", sender: nil)
         let currentSong = albums[indexPath.section].songs[indexPath.row]
         MyAudioPlayer.sharedPlayer.thisSong = currentSong
-        /*
-        let songId: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
-        let item: MPMediaItem = songQuery.getItem(songId: songId)
-        let url: URL = item.value(forProperty: MPMediaItemPropertyAssetURL) as! URL
-        print(url)
-        MyAudioPlayer.sharedPlayer.audioPlayer = try! AVAudioPlayer(contentsOf: url)
 
-        MyAudioPlayer.sharedPlayer.audioPlayer.play()
-        */
+        MyAudioPlayer.sharedPlayer.songList = songList
         MyAudioPlayer.sharedPlayer.play()
     }
 
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        for i in 0...albums.count - 1 {
+            print(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
+            songListName.append(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
+        }
+
+        for singleNameSong in MyAudioPlayer.sharedPlayer.songList {
+            songListName.append(singleNameSong.songTitle)
+        }
+        MyAudioPlayer.sharedPlayer.songListName = songListName
+
         if segue.identifier == "player",
             let nextScene = segue.destination as? PlayerViewController,
             let indexPath = myTableView.indexPathForSelectedRow {

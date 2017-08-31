@@ -281,7 +281,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AC-IQ-k2h" userLabel="Play">
-                                <rect key="frame" x="319" y="331" width="48" height="48"/>
+                                <rect key="frame" x="319" y="347" width="48" height="48"/>
                                 <state key="normal" image="play">
                                     <color key="titleColor" red="0.90134119987487793" green="0.078415550291538239" blue="0.089204065501689911" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -290,12 +290,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgS-KY-tbM">
-                                <rect key="frame" x="3" y="30" width="30" height="36"/>
+                                <rect key="frame" x="3" y="37" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="BSn-4T-pMU"/>
+                                    <constraint firstAttribute="width" constant="20" id="BSn-4T-pMU"/>
+                                    <constraint firstAttribute="width" secondItem="kgS-KY-tbM" secondAttribute="height" multiplier="3:3" id="tsJ-gh-JmV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="x">
+                                <state key="normal" image="closeCross">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -304,7 +305,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrl-C2-67F">
-                                <rect key="frame" x="33" y="28" width="309" height="38"/>
+                                <rect key="frame" x="23" y="28" width="329" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="rXE-TW-gzC"/>
                                 </constraints>
@@ -315,7 +316,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Jym-yg-3iP" firstAttribute="top" secondItem="9AC-IQ-k2h" secondAttribute="bottom" constant="1" id="4tr-fU-xW8"/>
+                            <constraint firstItem="Jym-yg-3iP" firstAttribute="top" secondItem="9AC-IQ-k2h" secondAttribute="bottom" constant="-15" id="4tr-fU-xW8"/>
+                            <constraint firstItem="kgS-KY-tbM" firstAttribute="centerY" secondItem="Yrl-C2-67F" secondAttribute="centerY" id="8X1-7X-IW8"/>
                             <constraint firstItem="luy-Sn-QXI" firstAttribute="centerX" secondItem="8Gs-RB-Ztg" secondAttribute="centerX" id="Adr-fm-1Uc"/>
                             <constraint firstItem="NVp-or-kJd" firstAttribute="top" secondItem="Jym-yg-3iP" secondAttribute="bottom" id="Flx-Cy-mZf"/>
                             <constraint firstItem="Jym-yg-3iP" firstAttribute="centerX" secondItem="8Gs-RB-Ztg" secondAttribute="centerX" id="H7p-h3-gzF"/>
@@ -325,7 +327,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0NU-lB-Zfr" secondAttribute="trailing" constant="-8" id="WHi-ab-uBy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9AC-IQ-k2h" secondAttribute="trailing" constant="-8" id="axO-XZ-Let"/>
                             <constraint firstItem="zT4-Mt-lXA" firstAttribute="centerY" secondItem="jIb-DT-yuZ" secondAttribute="centerY" id="gQq-Zg-8lq"/>
-                            <constraint firstItem="kgS-KY-tbM" firstAttribute="top" secondItem="sfp-EK-uhY" secondAttribute="bottom" constant="10" id="gaD-QR-41k"/>
                             <constraint firstItem="kgS-KY-tbM" firstAttribute="leading" secondItem="8Gs-RB-Ztg" secondAttribute="leadingMargin" constant="-13" id="hlV-c0-kKK"/>
                             <constraint firstItem="zT4-Mt-lXA" firstAttribute="leading" secondItem="8Gs-RB-Ztg" secondAttribute="leadingMargin" constant="-8" id="k1C-Id-nEr"/>
                             <constraint firstItem="Yrl-C2-67F" firstAttribute="centerX" secondItem="8Gs-RB-Ztg" secondAttribute="centerX" id="k77-7a-8CA"/>
@@ -455,6 +456,7 @@
     <resources>
         <image name="album" width="28" height="28"/>
         <image name="artist" width="28" height="28"/>
+        <image name="closeCross" width="2000" height="2000"/>
         <image name="first" width="28" height="28"/>
         <image name="note" width="170" height="170"/>
         <image name="play" width="48" height="48"/>
