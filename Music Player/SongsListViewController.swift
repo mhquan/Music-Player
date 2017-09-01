@@ -18,6 +18,7 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     var songQuery: SongQuery = SongQuery()
     var songListName: [String] = []
     var songList: [SongInfo] = []
+    var currentSong: SongInfo?
 
     @IBOutlet weak var myTableView: UITableView!
 
@@ -39,6 +40,18 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 self.displayMediaLibraryError()
             }
+            for i in 0...self.albums.count - 1 {
+                self.songListName.append(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
+                let songInfo = SongInfo.init(albumTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].albumTitle, artistName: MyAudioPlayer.sharedPlayer.albums[i].songs[0].artistName, songTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle, songId: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songId)
+                self.songList.append(songInfo)
+            }
+//            print(self.songListName)
+//            for singleNameSong in MyAudioPlayer.sharedPlayer.songList {
+//                self.songListName.append(singleNameSong.songTitle)
+//            }
+
+            MyAudioPlayer.sharedPlayer.songList = self.songList
+
         }
     }
 
@@ -108,27 +121,19 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.title = albums[indexPath.section].songs[indexPath.row].songTitle
+//        self.title = albums[indexPath.section].songs[indexPath.row].songTitle
         performSegue(withIdentifier: "player", sender: nil)
-        let currentSong = albums[indexPath.section].songs[indexPath.row]
+        currentSong = albums[indexPath.section].songs[indexPath.row]
+        MyAudioPlayer.sharedPlayer.songPosition = indexPath.section
+        
         MyAudioPlayer.sharedPlayer.thisSong = currentSong
-
-        MyAudioPlayer.sharedPlayer.songList = songList
         MyAudioPlayer.sharedPlayer.play()
     }
 
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        for i in 0...albums.count - 1 {
-            print(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
-            songListName.append(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
-        }
-
-        for singleNameSong in MyAudioPlayer.sharedPlayer.songList {
-            songListName.append(singleNameSong.songTitle)
-        }
-        MyAudioPlayer.sharedPlayer.songListName = songListName
-
+        
         if segue.identifier == "player",
             let nextScene = segue.destination as? PlayerViewController,
             let indexPath = myTableView.indexPathForSelectedRow {
@@ -136,5 +141,6 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
             nextScene.currentSong = currentSong
         }
     }
+    */
 
 }

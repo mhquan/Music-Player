@@ -33,7 +33,7 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
     var myMusicPlayer: MPMusicPlayerController?
     let masterVolumeSlider: MPVolumeView = MPVolumeView()
     let shouldShowSearchResults = false
-
+    var songPosition = 0
     var audioPlayer = AVAudioPlayer()
 
     // songinfo
@@ -48,6 +48,31 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
     }()
 
     private override init() {
+    }
+
+    func next() {
+        if songPosition < songList.count - 1{
+            songPosition = songPosition + 1
+            thisSong = songList[songPosition]
+        }
+        play()
+    }
+
+    func previous() {
+        if songPosition > 0 {
+            songPosition = songPosition - 1
+            thisSong = songList[songPosition]
+        }
+        play()
+
+    }
+
+    func shuffleSong() {
+
+    }
+
+    func repeatSong() {
+
     }
 
     func play() {
