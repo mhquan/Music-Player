@@ -17,11 +17,11 @@
 		141CDFFD1F4AEDBC00080F4E /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */; };
 		1451338B1F4EAB4A00A8AB58 /* SongQuerry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */; };
 		1452FBA41F53B8CA00B226E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452FBA31F53B8CA00B226E9 /* Player.swift */; };
-		1452FBA61F53F6F800B226E9 /* GM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1452FBA51F53F6F800B226E9 /* GM.mp3 */; };
 		14790BE91F4FE4A1005CBD62 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14790BE81F4FE4A1005CBD62 /* PlayerView.xib */; };
 		14790BEB1F4FE4B6005CBD62 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */; };
 		14790BED1F500D5E005CBD62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */; };
 		14790BEF1F501E88005CBD62 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14790BEE1F501E88005CBD62 /* Constant.swift */; };
+		17A4C2171F5C6FE3007EA93E /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17A4C2161F5C6FE3007EA93E /* sound.mp3 */; };
 		3A57C7F658C7D5C3681E4FA9 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96311B84A947596C14878F2C /* Pods_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,11 +39,11 @@
 		141CDFFC1F4AEDBC00080F4E /* ArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		1451338A1F4EAB4A00A8AB58 /* SongQuerry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongQuerry.swift; sourceTree = "<group>"; };
 		1452FBA31F53B8CA00B226E9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		1452FBA51F53F6F800B226E9 /* GM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GM.mp3; sourceTree = "<group>"; };
 		14790BE81F4FE4A1005CBD62 /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		14790BEA1F4FE4B6005CBD62 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		14790BEC1F500D5E005CBD62 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		14790BEE1F501E88005CBD62 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		17A4C2161F5C6FE3007EA93E /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		1AEC0B4BAEB5F5BA814E8A8E /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
 		96311B84A947596C14878F2C /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,8 +98,8 @@
 		14790BF01F502CB1005CBD62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17A4C2161F5C6FE3007EA93E /* sound.mp3 */,
 				14790BEE1F501E88005CBD62 /* Constant.swift */,
-				1452FBA51F53F6F800B226E9 /* GM.mp3 */,
 				141CDFD71F4ADA3C00080F4E /* AppDelegate.swift */,
 				141CDFE01F4ADA3D00080F4E /* Assets.xcassets */,
 				141CDFE21F4ADA3D00080F4E /* LaunchScreen.storyboard */,
@@ -205,11 +205,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1452FBA61F53F6F800B226E9 /* GM.mp3 in Resources */,
 				141CDFE41F4ADA3D00080F4E /* LaunchScreen.storyboard in Resources */,
 				141CDFE11F4ADA3D00080F4E /* Assets.xcassets in Resources */,
 				141CDFDF1F4ADA3C00080F4E /* Main.storyboard in Resources */,
 				14790BE91F4FE4A1005CBD62 /* PlayerView.xib in Resources */,
+				17A4C2171F5C6FE3007EA93E /* sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F34EB4EFB77F5CE3621AAE44 /* [CP] Embed Pods Frameworks */ = {
@@ -414,7 +414,7 @@
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player5";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -430,7 +430,7 @@
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player5";
+				PRODUCT_BUNDLE_IDENTIFIER = "X.Music-Player6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

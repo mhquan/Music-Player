@@ -7,5 +7,6 @@ target 'Music Player' do
 
   # Pods for Music Player
 pod 'CircularSlider'
+pod 'UICircularProgressRing'
 
 end

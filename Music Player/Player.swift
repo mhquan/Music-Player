@@ -30,18 +30,10 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
     var thisSong: SongInfo?
     var audioStuffed = false
     let audioInfo = MPNowPlayingInfoCenter.default()
-    var myMusicPlayer: MPMusicPlayerController?
-    let masterVolumeSlider: MPVolumeView = MPVolumeView()
     let shouldShowSearchResults = false
     var songPosition = 0
     var audioPlayer = AVAudioPlayer()
 
-    // songinfo
-    // songlist
-
-    // play
-    // pause
-    // next
 
     static var sharedPlayer: MyAudioPlayer = {
         return MyAudioPlayer()
@@ -76,6 +68,7 @@ class MyAudioPlayer: NSObject, AVAudioPlayerDelegate {
     }
 
     func play() {
+        print(thisSong)      
         let songID = thisSong?.songId
         if songID != 0 && songID != nil {
             let item: MPMediaItem = SongQuery().getItem(songId: songID!)

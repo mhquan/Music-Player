@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CircularSlider
+import UICircularProgressRing
 import MediaPlayer
 
 class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -19,6 +20,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var songListName: [String]?
     var timer: Timer!
 
+
     @IBOutlet weak var circularSlider: CircularSlider!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var myTableView: UITableView!
@@ -27,21 +29,28 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+        
+//        let x = Int(round(sliderProgress.value)) // x is Int
+        
+        
+//
         songListName = MyAudioPlayer.sharedPlayer.songListName
         songList = MyAudioPlayer.sharedPlayer.songList
-        updatePlaybutton()
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayerViewController.updateSliderProgress), userInfo: nil, repeats: true)
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setupCircularSlider()
-
+        updatePlaybutton()
         lblSongTitle.text = currentSong?.songTitle
+
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         timer.invalidate()
-        print(timer.isValid)
     }
     //MARK: set up table view
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +65,6 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = songList?[indexPath.row].songTitle
         cell.textLabel?.textColor = UIColor.white
-
         cell.becomeFirstResponder()
         return cell
     }
@@ -75,6 +83,9 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     fileprivate func setupCircularSlider() {
         circularSlider.delegate = self
 //        MyAudioPlayer.sharedPlayer.audioPlayer.play(atTime: TimeInterval(circularSlider.value))
+//        MyAudioPlayer.sharedPlayer.audioPlayer.currentTime = TimeInterval(circularSlider.value)
+        
+        
         currentSong = MyAudioPlayer.sharedPlayer.thisSong
         if currentSong?.songId != nil {
             let item: MPMediaItem = songQuery.getItem(songId: (currentSong?.songId)!)
@@ -89,9 +100,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func updateSliderProgress() {
+
         if currentSong?.songTitle != nil {
             let progress = MyAudioPlayer.sharedPlayer.audioPlayer.currentTime
-            circularSlider.setValue(Float(progress), animated: true)
+//            circularSlider.setValue(Float(progress), animated: true)
             lblTime.text = getHoursMinutesSecondsFrom(seconds: progress)
         }
     }
@@ -121,6 +133,12 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
     }
+    
+    func playNextSong() {
+        if MyAudioPlayer.sharedPlayer.audioPlayer.currentTime == MyAudioPlayer.sharedPlayer.audioPlayer.duration {
+            MyAudioPlayer.sharedPlayer.next()
+        }
+    }
 
     @IBAction func btnRepeat(_ sender: Any) {
         print("btnRepeat")
@@ -139,7 +157,12 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lblSongTitle.text = MyAudioPlayer.sharedPlayer.thisSong?.songTitle
     }
     @IBAction func btnPlay(_ sender: Any) {
-        MyAudioPlayer.sharedPlayer.playAndPause()
+        if MyAudioPlayer.sharedPlayer.thisSong != nil {
+            MyAudioPlayer.sharedPlayer.playAndPause()
+            updatePlaybutton()
+        } else {
+            print("song = nil")
+        }
     }
 
     @IBAction func btnClose(_ sender: Any) {
@@ -149,7 +172,12 @@ class PlayerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 extension PlayerViewController: CircularSliderDelegate {
     func circularSlider(_ circularSlider: CircularSlider, valueForValue value: Float) -> Float {
-//MyAudioPlayer.sharedPlayer.audioPlayer.currentTime = TimeInterval(circularSlider.value)
-        return floorf(value)
+//        MyAudioPlayer.sharedPlayer.audioPlayer.play(atTime: TimeInterval(circularSlider.value))
+        if MyAudioPlayer.sharedPlayer.thisSong != nil {
+            MyAudioPlayer.sharedPlayer.audioPlayer.currentTime = TimeInterval(circularSlider.value)
+            print(circularSlider.isExclusiveTouch)
+            playNextSong()
+        }
+            return floorf(value)
     }
 }

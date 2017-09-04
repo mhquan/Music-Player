@@ -25,9 +25,13 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         getSongs()
+        myTableView.addSubview(self.refreshControl)
+        
     }
 
     func getSongs() {
+        albums.removeAll()
+        songList.removeAll()
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
                 self.albums = self.songQuery.get(songCategory: "Song")
@@ -40,10 +44,12 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 self.displayMediaLibraryError()
             }
-            for i in 0...self.albums.count - 1 {
-                self.songListName.append(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
-                let songInfo = SongInfo.init(albumTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].albumTitle, artistName: MyAudioPlayer.sharedPlayer.albums[i].songs[0].artistName, songTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle, songId: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songId)
-                self.songList.append(songInfo)
+            if self.albums.count > 0 {
+                for i in 0...self.albums.count - 1 {
+                    self.songListName.append(MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle)
+                    let songInfo = SongInfo.init(albumTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].albumTitle, artistName: MyAudioPlayer.sharedPlayer.albums[i].songs[0].artistName, songTitle: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songTitle, songId: MyAudioPlayer.sharedPlayer.albums[i].songs[0].songId)
+                    self.songList.append(songInfo)
+                }
             }
 //            print(self.songListName)
 //            for singleNameSong in MyAudioPlayer.sharedPlayer.songList {
@@ -51,7 +57,6 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
 //            }
 
             MyAudioPlayer.sharedPlayer.songList = self.songList
-
         }
     }
 
@@ -79,7 +84,18 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
         present(controller, animated: true, completion: nil)
     }
 
-
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(SongListViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.black
+        return refreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getSongs()
+        refreshControl.endRefreshing()
+    }
+    
     @IBAction func moveToPlayer(_ sender: Any) {
         performSegue(withIdentifier: "player", sender: nil)
     }
@@ -124,8 +140,8 @@ class SongListViewController: UIViewController, UITableViewDelegate, UITableView
 //        self.title = albums[indexPath.section].songs[indexPath.row].songTitle
         performSegue(withIdentifier: "player", sender: nil)
         currentSong = albums[indexPath.section].songs[indexPath.row]
+       
         MyAudioPlayer.sharedPlayer.songPosition = indexPath.section
-        
         MyAudioPlayer.sharedPlayer.thisSong = currentSong
         MyAudioPlayer.sharedPlayer.play()
     }
